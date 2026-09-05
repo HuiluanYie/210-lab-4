@@ -3,17 +3,18 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 
 const int N_MIN = 25, N_MAX = 50;
 const int COLOR_MIN = 0, COLOR_MAX = 255;
-const int DATA_W = 10;
+const int DATA_W1 = 3, DATA_W2 = 10;
 
 struct Color {
     int red, green, blue;
 };
 
-//Function prototype
 //Function prototype
 Color random_color();
 void output_color(const Color & );
@@ -32,7 +33,7 @@ int main() {
     cout << "------   -------   -------   -------\n";
     // output the colors in the vector
     for (int i = 0; i < v.size(); i++) {
-        cout << setw(DATA_W) << right << i;
+        cout << setw(DATA_W1) << right << i;
         output_color(v[i]);
     }
 
@@ -45,7 +46,6 @@ Color random_color() {
     // arguments: none
     // returns: the Color
     Color temp;
-    int r, g, b;
 
     temp.red = rand() % (COLOR_MAX - COLOR_MIN + 1) + COLOR_MIN;
     temp.green = rand() % (COLOR_MAX - COLOR_MIN + 1) + COLOR_MIN;
@@ -58,8 +58,7 @@ void output_color(const Color & c) {
     // outputColor(const Color &c) outputs the Color struct's data in a nice, presentable format
     // arguments: Color
     // returns: none
-    cout << setw(DATA_W) << right << c.red;
-    cout << setw(DATA_W) << c.green;
-    cout << setw(DATA_W) << c.blue << '\n';
-    cout << endl;
+    cout << setw(DATA_W2) << right << c.red;
+    cout << setw(DATA_W2) << c.green;
+    cout << setw(DATA_W2) << c.blue << '\n';
 }
