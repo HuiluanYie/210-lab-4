@@ -8,17 +8,19 @@ struct Color {
 };
 
 //Function prototype
-void outputColor(const Color );
+void outputColor(const Color &);
 
 int main() {
     Color color = {0, 0, 0};
     outputColor(color);
-
     return 0;
 }
 
 //Function definition
 void outputColor(const Color &c) {
+    // outputColor(const Color &c) outputs the Color struct's data in a nice, presentable format
+    // arguments: Color
+    // returns: null
     cout << "Color RGB values:\n";
     cout << "Red:   " << c.red << '\n';
     cout << "Green: " << c.green << '\n';
