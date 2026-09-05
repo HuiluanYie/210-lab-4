@@ -2,12 +2,12 @@
 
 #include <iostream>
 #include <vector>
+#include <iomanip>
 using namespace std;
 
-const int N_MIN = 25,
-    N_MAX = 50;
-const int COLOR_MIN = 0,
-    COLOR_MAX = 255;
+const int N_MIN = 25, N_MAX = 50;
+const int COLOR_MIN = 0, COLOR_MAX = 255;
+const int DATA_W = 10;
 
 struct Color {
     int red, green, blue;
@@ -27,9 +27,13 @@ int main() {
     for (int i = 0; i < n; i++) {
         v.push_back(random_color());
     }
+    // table header
+    cout << "Color#   R value   G value   B value\n";
+    cout << "------   -------   -------   -------\n";
     // output the colors in the vector
-    for (Color c: v) {
-        output_color(c);
+    for (int i = 0; i < v.size(); i++) {
+        cout << setw(DATA_W) << right << i;
+        output_color(v[i]);
     }
 
     return 0;
@@ -54,9 +58,8 @@ void output_color(const Color & c) {
     // outputColor(const Color &c) outputs the Color struct's data in a nice, presentable format
     // arguments: Color
     // returns: none
-    cout << "Color RGB values:\n";
-    cout << "Red:   " << c.red << '\n';
-    cout << "Green: " << c.green << '\n';
-    cout << "Blue:  " << c.blue << '\n';
+    cout << setw(DATA_W) << right << c.red;
+    cout << setw(DATA_W) << c.green;
+    cout << setw(DATA_W) << c.blue << '\n';
     cout << endl;
 }
