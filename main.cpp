@@ -4,6 +4,9 @@
 #include <vector>
 using namespace std;
 
+const int N_MIN = 25, N_MAX = 50;
+const int MIN = 25, MAX = 50;
+
 struct Color {
     int red, green, blue;
 };
@@ -12,10 +15,20 @@ struct Color {
 void outputColor(const Color &);
 
 int main() {
-    Color color = {0, 0, 0};
-    
+    srand(time(0));
+    int n = rand() % (MAX - MIN + 1) + MIN;
     vector<Color> v;
-    v.push_back(color);
+    Color temp_color;
+    int r, g, b;
+
+    for (int i = 0; i < n; i++)
+    {
+        r = rand() %
+        temp_color = {r, g, b};
+        v.push_back(temp_color);
+    }
+    
+    
     outputColor(v[0]);
 
     return 0;
