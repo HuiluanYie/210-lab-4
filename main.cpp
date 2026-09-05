@@ -1,6 +1,7 @@
 // COMSC-210 | Lab 4 | Huiluan Yie
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 struct Color {
@@ -12,7 +13,11 @@ void outputColor(const Color &);
 
 int main() {
     Color color = {0, 0, 0};
-    outputColor(color);
+    
+    vector<Color> v;
+    v.push_back(color);
+    outputColor(v[0]);
+
     return 0;
 }
 
