@@ -4,8 +4,10 @@
 #include <vector>
 using namespace std;
 
-const int N_MIN = 25, N_MAX = 50;
-const int COLOR_MIN = 0, COLOR_MAX = 255;
+const int N_MIN = 25,
+    N_MAX = 50;
+const int COLOR_MIN = 0,
+    COLOR_MAX = 255;
 
 struct Color {
     int red, green, blue;
@@ -13,48 +15,45 @@ struct Color {
 
 //Function prototype
 //Function prototype
-Color populate_color();
-void output_color(const Color &);
+Color random_color();
+void output_color(const Color & );
 
 int main() {
     srand(time(0));
     int n = rand() % (N_MAX - N_MIN + 1) + N_MIN;
-    vector<Color> v;
-    int r, g, b;
+    vector < Color > v;
 
     // push n random colors into the vector
-    for (int i = 0; i < n; i++)
-    {
-        r = rand() % (COLOR_MAX - COLOR_MIN + 1) + COLOR_MIN;
-        g = rand() % (COLOR_MAX - COLOR_MIN + 1) + COLOR_MIN;
-        b = rand() % (COLOR_MAX - COLOR_MIN + 1) + COLOR_MIN;
-        temp_color = {r, g, b};
-        v.push_back(temp_color);
+    for (int i = 0; i < n; i++) {
+        v.push_back(random_color());
     }
-    
-    for (int i = 0; i < n; i++)
-    {
-        temp_color = {r, g, b};
-        v.push_back(temp_color);
+    // output the colors in the vector
+    for (Color c: v) {
+        output_color(c);
     }
-    output_color(v[0]);
 
     return 0;
 }
 
 //Function definition
-Color populate_color() {
-    // populate_color() populate the Color struct's data in a nice, presentable format
-    // arguments: Color
-    // returns: null
+Color random_color() {
+    // populate_color() generates a random color
+    // arguments: none
+    // returns: the Color
     Color temp;
+    int r, g, b;
+
+    temp.red = rand() % (COLOR_MAX - COLOR_MIN + 1) + COLOR_MIN;
+    temp.green = rand() % (COLOR_MAX - COLOR_MIN + 1) + COLOR_MIN;
+    temp.blue = rand() % (COLOR_MAX - COLOR_MIN + 1) + COLOR_MIN;
+
     return temp;
 }
 
-void output_color(const Color &c) {
+void output_color(const Color & c) {
     // outputColor(const Color &c) outputs the Color struct's data in a nice, presentable format
     // arguments: Color
-    // returns: null
+    // returns: none
     cout << "Color RGB values:\n";
     cout << "Red:   " << c.red << '\n';
     cout << "Green: " << c.green << '\n';
