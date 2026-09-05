@@ -9,7 +9,7 @@ using namespace std;
 
 const int N_MIN = 25, N_MAX = 50;
 const int COLOR_MIN = 0, COLOR_MAX = 255;
-const int DATA_W1 = 3, DATA_W2 = 10;
+const int DATA_W1 = 4, DATA_W2 = 10;
 
 struct Color {
     int red, green, blue;
@@ -33,7 +33,7 @@ int main() {
     cout << "------   -------   -------   -------\n";
     // output the colors in the vector
     for (int i = 0; i < v.size(); i++) {
-        cout << setw(DATA_W1) << right << i;
+        cout << setw(DATA_W1) << right << i + 1;
         output_color(v[i]);
     }
 
